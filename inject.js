@@ -72,9 +72,8 @@ inject_html=`
 </script>
 `
 
-console.log($request.url)
-console.log($response.body)
-$done({})
+// console.log($request.url)
+// console.log($response.body)
 
 $done({status: $response.status, headers: $response.headers, body: $response.body.replaceAll('</body>', inject_html+'</body>')})
 
