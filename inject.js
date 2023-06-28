@@ -68,9 +68,9 @@ inject_html=`
                             window.alert('数据上传失败。 diff:' + diff);
                             window.alert(xhr.status);
                             window.alert(thrownError);
-                        };
+                        }
                     });
-                    
+
                     upload();
                 };
 
