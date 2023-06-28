@@ -15,4 +15,4 @@ http:
 script-providers:
   upload:
     url: https://raw.githubusercontent.com/M1k0t0/dx-prober-updater-stash-override/master/upload.js
-    interval: 86400
+    interval: 0
