@@ -20,7 +20,7 @@ inject_html=`
     btn_upload.appendChild(btn_upload_img);
     document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
 
-    window.alert('注入成功！ v0.0.4');
+    window.alert('注入成功！ v0.0.5');
 
     var p = 0;
     var o = 0;
@@ -75,7 +75,7 @@ inject_html=`
 							});
 						},
 						error: (xhr, ajaxOptions, thrownError)=>{
-							window.alert('数据上传失败。 diff:' + diff);
+							window.alert('数据上传失败。 diff:' + te);
 							window.alert(xhr.status);
 							window.alert(thrownError);
 							upload();
