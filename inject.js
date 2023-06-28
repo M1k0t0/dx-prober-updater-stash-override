@@ -75,6 +75,7 @@ setTimeout(()=>{
 `
 
 console.log($request.url)
+console.log($response.body)
 $done({})
 
 // if($response.body.indexOf('login=')!=-1 || $response.body==""){
