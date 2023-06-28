@@ -3,7 +3,7 @@ desc: 通过 mitm 来增加一段脚本获取数据并上传
 
 http:
   script:
-    - match: "maimai.wahlap.com/maimai-mobile/(?!js|css|img|error|termsOfService|sitePolicy)"
+    - match: "^https?:\/\/maimai\.wahlap\.com\/maimai-mobile\/.*(?<!js|css|img|error|termsOfService|sitePolicy)$"
       name: upload
       type: response # request / response
       require-body: true
