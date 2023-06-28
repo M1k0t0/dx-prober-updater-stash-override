@@ -20,7 +20,7 @@ inject_html=`
     btn_upload.appendChild(btn_upload_img);
     document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
 
-    window.alert('注入成功！ v0.0.8');
+    window.alert('注入成功！ v0.0.9');
 
     var p = 0;
     var o = 0;
@@ -43,20 +43,18 @@ inject_html=`
                 var te = 0;
                 
                 var upload = ()=>{
-                    window.alert('diff:'+ te +' 正在获取数据');
+                    // window.alert('diff:'+ te +' 正在获取数据');
 					$.ajax({
 						url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + te,
 						timeout: 30000,
 						type: 'GET',
-						async: true,
 						success: (res)=>{
-                            window.alert('diff:'+ te +' 正在上传');
+                            // window.alert('diff:'+ te +' 正在上传');
                             try{
                                 $.ajax({
                                     url: 'https://www.diving-fish.com/api/pageparser/page',
                                     timeout: 30000,
                                     type: 'POST',
-                                    async: true,
                                     data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\\s\\S]*)<\\/html>/)[1].replace(/\\s+/g, ' '),
                                     contentType: 'text/plain',
                                     success: (res)=>{
@@ -64,13 +62,13 @@ inject_html=`
                                             window.alert('所有成绩上传完成!');
                                             window.location.reload();
                                         } else{
-                                            window.alert('diff:'+ te +' 上传完成!');
+                                            // window.alert('diff:'+ te +' 上传完成!');
                                             te++;
+                                            upload();
                                         }
-                                        upload();
                                     },
                                     error: ()=>{
-                                        window.alert('diff:'+ te +' 上传失败，正在重试');
+                                        // window.alert('diff:'+ te +' 上传失败，正在重试');
                                         upload();
                                     }
                                 });
@@ -79,7 +77,7 @@ inject_html=`
                             }
 						},
 						error: (xhr, ajaxOptions, thrownError)=>{
-							window.alert('数据上传失败。 diff:' + te);
+							// window.alert('数据上传失败。 diff:' + te);
 							window.alert(xhr.status);
 							window.alert(thrownError);
 							upload();
