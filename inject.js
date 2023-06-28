@@ -19,7 +19,7 @@ setTimeout(()=>{
     btn_upload_img.setAttribute('style', 'margin-bottom: -10px;');
     tc(1);
     btn_upload.appendChild(btn_upload_img);
-    // document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
+    document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
     var p = 0;
     var o = 0;
     btn_upload.onclick = ()=>{
