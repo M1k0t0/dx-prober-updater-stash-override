@@ -14,5 +14,5 @@ http:
  
 script-providers:
   upload:
-    url: https://raw.githubusercontent.com/M1k0t0/dx-prober-updater-stash-override/master/upload.js
+    url: https://raw.githubusercontent.com/M1k0t0/dx-prober-updater-stash-override/master/inject.js
     interval: 0
