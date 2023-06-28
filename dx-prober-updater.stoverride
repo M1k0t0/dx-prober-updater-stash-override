@@ -10,7 +10,7 @@ http:
       timeout: 20
       argument: ''
       binary-mode: false
-      max-size: 1048576 # 1MB
+      max-size: 104857600 # 100MB
  
 script-providers:
   upload:
