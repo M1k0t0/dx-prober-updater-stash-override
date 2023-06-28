@@ -41,13 +41,14 @@ inject_html=`
                 var te = 0;
                 
                 var upload = ()=>{
-                    console.log('diff:'+ te +' 正在上传');
+                    console.log('diff:'+ te +' 正在获取数据');
 					$.ajax({
 						url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + te,
 						timeout: 30000,
 						type: 'GET',
 						async: true,
 						success: (res)=>{
+                            console.log('diff:'+ te +' 正在上传');
 							$.ajax({
 								url: 'https://www.diving-fish.com/api/pageparser/page',
 								type: 'POST',
