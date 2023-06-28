@@ -20,7 +20,7 @@ inject_html=`
     btn_upload.appendChild(btn_upload_img);
     document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
 
-    window.alert('注入成功！ v0.0.2');
+    window.alert('注入成功！ v0.0.3');
 
     var p = 0;
     var o = 0;
@@ -48,7 +48,7 @@ inject_html=`
 						url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + te,
 						timeout: 30000,
 						type: 'GET',
-						async: true,
+						async: false,
 						success: (res)=>{
                             window.alert('diff:'+ te +' 正在上传');
 							$.ajax({
@@ -59,7 +59,7 @@ inject_html=`
 								data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\s\S]*)<\\/html>/)[1].replace(/\s+/g, ' '),
 								contentType: 'text/plain',
 								success: (res)=>{
-									if (te == 5) {
+									if (te == 4) {
 										window.alert('所有成绩上传完成!');
 										window.location.reload();
 									} else{
