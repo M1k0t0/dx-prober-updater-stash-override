@@ -75,8 +75,12 @@ inject_html=`
 // console.log($request.url)
 // console.log($response.body)
 
-new_body=$response.body.replaceAll('</body>', inject_html+'</body>');
-console.log(new_body);
+try{
+    new_body=$response.body.replace('</body>', inject_html+'</body>');
+    console.log(new_body);
+} catch(e){
+    console.log(e);
+}
 
 $done({status: $response.status, headers: $response.headers, body: new_body});
 
