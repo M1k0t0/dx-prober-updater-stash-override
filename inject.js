@@ -20,7 +20,7 @@ inject_html=`
     btn_upload.appendChild(btn_upload_img);
     document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
 
-    window.alert('注入成功！ v0.0.7');
+    window.alert('注入成功！ v0.0.8');
 
     var p = 0;
     var o = 0;
@@ -56,7 +56,7 @@ inject_html=`
                                     url: 'https://www.diving-fish.com/api/pageparser/page',
                                     timeout: 30000,
                                     type: 'POST',
-                                    async: false,
+                                    async: true,
                                     data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\\s\\S]*)<\\/html>/)[1].replace(/\\s+/g, ' '),
                                     contentType: 'text/plain',
                                     success: (res)=>{
