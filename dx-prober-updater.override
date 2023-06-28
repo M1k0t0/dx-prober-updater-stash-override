@@ -1,3 +1,6 @@
+name: maimai 成绩上传
+desc: 通过 mitm 来增加一段脚本获取数据并上传
+
 http:
   script:
     - match: *.wahlap.com
