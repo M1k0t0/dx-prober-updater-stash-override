@@ -21,6 +21,7 @@ inject_html=`
     document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
 
     window.alert('注入成功！');
+    window.alert('0.0.1');
 
     var p = 0;
     var o = 0;
@@ -67,6 +68,7 @@ inject_html=`
 									upload();
 								},
 								error: ()=>{
+                                    window.alert('diff:'+ te +' 上传失败，正在重试');
 									upload();
 								}
 							});
