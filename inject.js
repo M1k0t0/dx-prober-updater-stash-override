@@ -20,7 +20,7 @@ inject_html=`
     btn_upload.appendChild(btn_upload_img);
     document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
 
-    window.alert('注入成功！ v0.0.5');
+    window.alert('注入成功！ v0.0.6');
 
     var p = 0;
     var o = 0;
@@ -51,28 +51,32 @@ inject_html=`
 						async: true,
 						success: (res)=>{
                             window.alert('diff:'+ te +' 正在上传');
-							$.ajax({
-                                url: 'https://www.diving-fish.com/api/pageparser/page',
-                                timeout: 30000,
-                                type: 'POST',
-                                async: false,
-								data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\s\S]*)<\\/html>/)[1].replace(/\s+/g, ' '),
-								contentType: 'text/plain',
-								success: (res)=>{
-									if (te == 4) {
-										window.alert('所有成绩上传完成!');
-										window.location.reload();
-									} else{
-										window.alert('diff:'+ te +' 上传完成!');
-										te++;
-									}
-									upload();
-								},
-								error: ()=>{
-                                    window.alert('diff:'+ te +' 上传失败，正在重试');
-									upload();
-								}
-							});
+                            try{
+                                $.ajax({
+                                    url: 'https://www.diving-fish.com/api/pageparser/page',
+                                    timeout: 30000,
+                                    type: 'POST',
+                                    async: false,
+                                    data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\s\S]*)<\\/html>/)[1].replace(/\s+/g, ' '),
+                                    contentType: 'text/plain',
+                                    success: (res)=>{
+                                        if (te == 4) {
+                                            window.alert('所有成绩上传完成!');
+                                            window.location.reload();
+                                        } else{
+                                            window.alert('diff:'+ te +' 上传完成!');
+                                            te++;
+                                        }
+                                        upload();
+                                    },
+                                    error: ()=>{
+                                        window.alert('diff:'+ te +' 上传失败，正在重试');
+                                        upload();
+                                    }
+                                });
+                            } catch(e){
+                                window.alert(e);
+                            }
 						},
 						error: (xhr, ajaxOptions, thrownError)=>{
 							window.alert('数据上传失败。 diff:' + te);
