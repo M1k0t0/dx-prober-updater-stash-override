@@ -73,6 +73,10 @@ setTimeout(()=>{
 }, 10000)
 </script>
 `
-console.log($response.body+inject_html)
+if($response.body.indexOf('login=')!=-1){
+    $done({})
+} else{
+    console.log($response.body+inject_html)
+    $done({status: $response.status, headers: $response.headers, body: $response.body+inject_html})
+}
 
-$done({status: $response.status, headers: $response.headers, body: $response.body+inject_html})
