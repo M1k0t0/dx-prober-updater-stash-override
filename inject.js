@@ -40,7 +40,7 @@ inject_html=`
 
                 var te = 0;
                 
-                let upload = ()=>{
+                var upload = ()=>{
 					$.ajax({
 						url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + te,
 						timeout: 30000,
@@ -61,8 +61,11 @@ inject_html=`
 										window.alert('diff:'+ te +' 上传完成!');
 										te++;
 									}
+									upload();
+								},
+								error: ()=>{
+									upload();
 								}
-								upload();
 							});
 						},
 						error: (xhr, ajaxOptions, thrownError)=>{
