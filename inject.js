@@ -78,10 +78,6 @@ console.log($request.url)
 console.log($response.body)
 $done({})
 
-// if($response.body.indexOf('login=')!=-1 || $response.body==""){
-//     $done({})
-// } else{
-//     console.log($response.body+inject_html)
-//     $done({status: $response.status, headers: $response.headers, body: $response.body+inject_html})
-// }
+$done({status: $response.status, headers: $response.headers, body: $response.body.replaceAll('</body>', inject_html+'</body>')})
+
 
