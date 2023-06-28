@@ -42,9 +42,9 @@ inject_html=`
                 [0, 1, 2, 3, 4].forEach((diff)=>{
                     $.ajax({
                         url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + diff,
-                        timeout:30000,
+                        timeout: 30000,
                         type: 'GET',
-                        async: false,
+                        async: true,
                         success: (res)=>{
                             console.log(res.match("成功"));
                             $.ajax({
