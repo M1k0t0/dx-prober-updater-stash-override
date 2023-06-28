@@ -41,38 +41,38 @@ inject_html=`
                 var te = 0;
                 
                 let upload = ()=>{
-                    $.ajax({
-                        url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + te,
-                        timeout: 30000,
-                        type: 'GET',
-                        async: false,
-                        success: (res)=>{
-                            console.log(res.match("成功"));
-                            $.ajax({
-                                url: 'https://www.diving-fish.com/api/pageparser/page',
-                                type: 'POST',
-                                data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\s\S]*)<\\/html>/)[1].replace(/\s+/g, ' '),
-                                contentType: 'text/plain',
-                                success: (res)=>{
-                                    if (te == 5) {
-                                        window.alert('所有成绩上传完成!');
-                                        window.location.reload();
-                                    } else{
-                                        window.alert('diff: '+ te +', 上传完成!');
-                                        te++;
-                                    }
-                                }
-                            });
-                        },
-                        error: (xhr, ajaxOptions, thrownError)=>{
-                            window.alert('数据上传失败。 diff:' + diff);
-                            window.alert(xhr.status);
-                            window.alert(thrownError);
-                        }
-                    });
-
-                    upload();
-                };
+					$.ajax({
+						url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + te,
+						timeout: 30000,
+						type: 'GET',
+						async: true,
+						success: (res)=>{
+							console.log('diff:'+ te +' 正在上传');
+							$.ajax({
+								url: 'https://www.diving-fish.com/api/pageparser/page',
+								type: 'POST',
+								data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\s\S]*)<\\/html>/)[1].replace(/\s+/g, ' '),
+								contentType: 'text/plain',
+								success: (res)=>{
+									if (te == 5) {
+										window.alert('所有成绩上传完成!');
+										window.location.reload();
+									} else{
+										window.alert('diff:'+ te +' 上传完成!');
+										te++;
+									}
+								}
+								upload();
+							});
+						},
+						error: (xhr, ajaxOptions, thrownError)=>{
+							window.alert('数据上传失败。 diff:' + diff);
+							window.alert(xhr.status);
+							window.alert(thrownError);
+							upload();
+						}
+					});
+				};
 
                 upload();
                     
