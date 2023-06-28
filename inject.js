@@ -20,7 +20,7 @@ inject_html=`
     btn_upload.appendChild(btn_upload_img);
     document.getElementsByClassName('setting')[0].parentNode.append(btn_upload);
 
-    window.alert('注入成功！ v0.0.3');
+    window.alert('注入成功！ v0.0.4');
 
     var p = 0;
     var o = 0;
@@ -48,14 +48,14 @@ inject_html=`
 						url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + te,
 						timeout: 30000,
 						type: 'GET',
-						async: false,
+						async: true,
 						success: (res)=>{
                             window.alert('diff:'+ te +' 正在上传');
 							$.ajax({
                                 url: 'https://www.diving-fish.com/api/pageparser/page',
                                 timeout: 30000,
                                 type: 'POST',
-                                async: true,
+                                async: false,
 								data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\s\S]*)<\\/html>/)[1].replace(/\s+/g, ' '),
 								contentType: 'text/plain',
 								success: (res)=>{
