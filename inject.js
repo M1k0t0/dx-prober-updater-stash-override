@@ -47,7 +47,7 @@ inject_html=`
                             $.ajax({
                                 url: 'https://www.diving-fish.com/api/pageparser/page',
                                 type: 'POST',
-                                data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\s\S]*)<\/html>/)[1].replace(/\s+/g, ' '),
+                                data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\s\S]*)<\\/html>/)[1].replace(/\s+/g, ' '),
                                 contentType: 'text/plain',
                                 success: (res)=>{
                                     te++;
@@ -77,7 +77,7 @@ inject_html=`
 
 try{
     new_body=$response.body.replace('</body>', inject_html+'</body>');
-    console.log(new_body);
+    // console.log(new_body);
 } catch(e){
     console.log(e);
 }
