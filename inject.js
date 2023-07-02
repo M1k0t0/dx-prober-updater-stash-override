@@ -46,14 +46,14 @@ inject_html=`
                     // window.alert('diff:'+ te +' 正在获取数据');
 					$.ajax({
 						url: 'https://maimai.wahlap.com/maimai-mobile/record/musicGenre/search/?genre=99&diff=' + te,
-						timeout: 30000,
+						timeout: 150000,
 						type: 'GET',
 						success: (res)=>{
                             // window.alert('diff:'+ te +' 正在上传');
                             try{
                                 $.ajax({
                                     url: 'https://www.diving-fish.com/api/pageparser/page',
-                                    timeout: 30000,
+                                    timeout: 150000,
                                     type: 'POST',
                                     data: "<login><u>" + user + "</u><p>" + pwd + "</p></login>" + res.match(/<html.*>([\\s\\S]*)<\\/html>/)[1].replace(/\\s+/g, ' '),
                                     contentType: 'text/plain',
